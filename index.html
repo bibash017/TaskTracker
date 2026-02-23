@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <header>
         <h1>Welcome to the task tracker app!</h1>
     </header>
     <main>
+        <div class="task-colums">
         <section class="remained-tasks">
         <h2>Tasks Remained</h2>
         <ul id="remaining-list">
@@ -28,15 +31,16 @@
                 <li>Install linux on my laptop</li>
                 <li>Clean the room</li>   
         </ul>
+        </div>
     </section>
      <aside class="new-tasks">
         <h2>ADD NEW TASK</h2>
         <form>
             <label for="date">Date: </label>
-            <input type="date" name="date" placeholder="DATE">
+            <input id="date" type="date" name="date" placeholder="DATE">
 
             <label for="add_new_task">Add new task: </label>
-            <input type="textarea" name="add_new_task" id="add_new_task" placeholder="Enter the description">
+            <input name="add_new_task" id="add_new_task" placeholder="Enter the description">
 
             <input type="submit" value="Submit">
         </form>
