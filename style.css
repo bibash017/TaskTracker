@@ -1,36 +1,43 @@
+/* Removes default browser spacing */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Style the page background and font */
 body{ 
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f4f6f8;
-    padding: 40x;
+    padding: 40px;
 }
 
+/* Make the main section flexible layout*/
 main{
     display: flex;
     gap: 40px;
     align-items: flex-start;
 }
 
+/* Left side task section takes more space */
 .task-columns{
     flex: 2;
 }
 
+/* Right side add-task section smaller */
 .new-tasks {
     flex: 1;
 }
 
+/* White card style */
 section, 
 .new-tasks{
-    backgroung: white;
+    background: white;
     padding: 20px;
     border-radius: 8px ;
 }
 
+/* Add spacing between sections */
 section + section {
     margin-top: 20px;
 }
