@@ -1,6 +1,0 @@
-{
-    "workbench.externalBrowser": "chrome",
-    "liveServer.settings.CustomBrowser": "chrome",
-    "files.trimTrailingWhitespaceInRegexAndStrings": false,
-    "editor.formatOnSave": false
-}
