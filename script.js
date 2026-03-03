@@ -1,75 +1,132 @@
+let tasks = [];
+
+const oneHour = 60 * 60 * 1000;
+const oneDay = 24 * 60 * 60 * 1000;
+const oneWeek = 7 * 24 * 60 * 60 * 1000;
+
 // Wait for page to load
 document.addEventListener('DOMContentLoaded', function() {
-    
+
     const form = document.getElementById("task-form");
     const input = document.getElementById("add_new_task");
     const dateInput = document.getElementById("date");
-    const remainingList = document.getElementById("remaining-list");
-    
-    // Listen for form submit
+
+    window.remainingList = document.getElementById("remaining-list");
+    window.completedList = document.getElementById("completed-list");
+
     form.addEventListener("submit", function(e) {
-        // FIXED: Prevent page refresh
         e.preventDefault();
-        
-        // Get values from inputs
+
         const taskText = input.value.trim();
         const taskDate = dateInput.value;
-        
-        // If empty, stop
+
         if (taskText === "") return;
-        
-        // Create new <li>
-        const li = document.createElement("li");
-        
-        // Add checkbox and task text
-        li.innerHTML = `
-            <input type="checkbox" class="task-checkbox">
-            <span>${taskText}${taskDate ? ' - ' + taskDate : ''}</span>
-        `;
-        
-        // Add to list
-        remainingList.appendChild(li);
-        
-        // Clear inputs
+
+        const newTask = {
+            id: Date.now(),
+            text: taskText,
+            dueDate: taskDate,
+            createdAt: Date.now(),
+            completedAt: null,
+            deletedAt: null,
+            status: "active"
+        };
+
+        tasks.push(newTask);
+
         input.value = "";
         dateInput.value = "";
-        
-        // Add checkbox listener to new task
-        attachCheckboxListener(li);
+
+        renderTasks();
     });
-    
-    // Attach listeners to existing checkboxes
-    document.querySelectorAll('.task-checkbox').forEach(checkbox => {
-        attachCheckboxListener(checkbox.parentElement);
-    });
+
+    // Run cleanup every minute
+    setInterval(cleanupTasks, 60000);
+
 });
 
 // Handle checkbox click
-function attachCheckboxListener(li) {
-    const checkbox = li.querySelector('.task-checkbox');
-    
-    checkbox.addEventListener('change', function() {
-        if (this.checked) {
-            // Wait a moment, then move to completed
-            setTimeout(() => {
-                moveToCompleted(li);
-            }, 300);
+function renderTasks() {
+
+    remainingList.innerHTML = "";
+    completedList.innerHTML = "";
+
+    const now = Date.now();
+
+    tasks.forEach(task => {
+
+        const li = document.createElement("li");
+
+        // ACTIVE TASKS
+        if (task.status === "active") {
+
+            // Overdue check
+            if (task.dueDate) {
+                const due = new Date(task.dueDate).getTime();
+
+                if (now > due) {
+                    li.style.color = "red";
+                }
+            }
+
+            li.innerHTML = `
+                <input type="checkbox" class="task-checkbox">
+                <span>${task.text}${task.dueDate ? " - " + task.dueDate : ""}</span>
+            `;
+
+            const checkbox = li.querySelector(".task-checkbox");
+
+            checkbox.addEventListener("change", function() {
+                task.status = "completed";
+                task.completedAt = Date.now();
+                renderTasks();
+            });
+
+            remainingList.appendChild(li);
         }
+
+        // COMPLETED TASKS
+        if (task.status === "completed") {
+            li.textContent = task.text + " (Completed)";
+            completedList.appendChild(li);
+        }
+
     });
 }
 
-// Move task to completed section
-function moveToCompleted(li) {
-    const completedList = document.getElementById("completed-list");
-    const taskText = li.querySelector('span').textContent;
-    
-    // Create completed task (no checkbox)
-    const completedLi = document.createElement("li");
-    completedLi.textContent = taskText;
-    
-    // Add to completed list
-    completedList.appendChild(completedLi);
-    
-    // Remove from remaining list
-    li.remove();
+function cleanupTasks() {
+
+    const now = Date.now();
+
+    tasks.forEach(task => {
+
+        // Completed > 1 hour → Deleted
+        if (task.status === "completed" &&
+            now - task.completedAt > oneHour) {
+
+            task.status = "deleted";
+            task.deletedAt = now;
+        }
+
+        // Active overdue > 1 day → Deleted
+        if (task.status === "active" && task.dueDate) {
+
+            const due = new Date(task.dueDate).getTime();
+
+            if (now - due > oneDay) {
+                task.status = "deleted";
+                task.deletedAt = now;
+            }
+        }
+    });
+
+    // Deleted > 1 week → Permanently remove
+    tasks = tasks.filter(task => {
+        if (task.status === "deleted") {
+            return (now - task.deletedAt < oneWeek);
+        }
+        return true;
+    });
+
+    renderTasks();
 }

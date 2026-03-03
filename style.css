@@ -107,7 +107,7 @@ label {
 
 input[type="date"],
 input[type="text"] {
-    padding: 10px;
+    padding: 14px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1em;
@@ -134,13 +134,3 @@ input[type="submit"]:hover {
     background: #2980b9;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    main {
-        flex-direction: column;
-    }
-    
-    body {
-        padding: 20px;
-    }
-}
