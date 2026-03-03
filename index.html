@@ -5,48 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Tracker</title>
     <link rel="stylesheet" href="style.css">
-
+    <script src="script.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Tracker</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-   <script src="script.js"></script>
 <body>
     <header>
         <h1>Welcome to the task tracker app!</h1>
     </header>
+    
     <main>
         <div class="task-columns">
-        <section class="remained-tasks">
-        <h2>Tasks Remained</h2>
-        <ul id="remaining-list">
-                <li>Complete the assignment of ACS 2947</li>
-                <li>Finish the lab of ACS 2909</li>
-                <li>cancel my wiley plus free plan</li>
-                <li>Attend the 2947 lecture on wednesday</li>
-                <li>Go to work</li>
-                <li>Do the laundry</li>
-        </ul>
-    </section>
-    <section class="completed-tasks">
-        <h2>Completed Tasks!</h2>
-        <ul id="completed-list">
-                <li>Do the grocery</li>
-                <li>Install linux on my laptop</li>
-                <li>Clean the room</li>   
-        </ul>
+            <section class="remained-tasks">
+                <h2>Tasks Remained</h2>
+                <ul id="remaining-list"> 
+                    <li>
+                        <input type="checkbox" class="task-checkbox">
+                        <span>Complete the assignment of ACS 2947</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="task-checkbox">
+                        <span>Finish the lab of ACS 2909</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="task-checkbox">
+                        <span>cancel my wiley plus free plan</span>
+                    </li>
+                </ul>
+            </section>
+            
+            <section class="completed-tasks">
+                <h2>Completed Tasks!</h2>
+                <ul id="completed-list">
+                    <li>Do the grocery</li>
+                    <li>Install linux on my laptop</li>
+                    <li>Clean the room</li>   
+                </ul>
+            </section>
         </div>
-    </section>
-     <aside class="new-tasks">
-        <h2>ADD NEW TASK</h2>
-        <form>
-            <label for="date">Date: </label>
-            <input id="date" type="date" name="date" placeholder="DATE">
+        
+        <aside class="new-tasks">
+            <h2>ADD NEW TASK</h2>
+            <form id="task-form">
+                <label for="date">Date: </label>
+                <input id="date" type="date" name="date">
 
-            <label for="add_new_task">Add new task: </label>
-            <input name="add_new_task" id="add_new_task" placeholder="Enter the description">
+                <label for="add_new_task">Add new task: </label>
+                <input name="add_new_task" id="add_new_task" placeholder="Enter the description">
 
-            <input type="submit" value="Submit">
-        </form>
-    </aside>
+                <input type="submit" value="Submit">
+            </form>
+        </aside>
     </main>
    
+    <script src="script.js"></script>
 </body>
 </html>

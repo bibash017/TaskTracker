@@ -1,26 +1,37 @@
+
 /* Removes default browser spacing */
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 /* Style the page background and font */
-body{ 
+body { 
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f4f6f8;
     padding: 40px;
 }
 
-/* Make the main section flexible layout*/
-main{
+/* Header styling */
+header {
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #2c3e50;
+    font-size: 2em;
+}
+
+/* Make the main section flexible layout */
+main {
     display: flex;
     gap: 40px;
     align-items: flex-start;
 }
 
 /* Left side task section takes more space */
-.task-columns{
+.task-columns {
     flex: 2;
 }
 
@@ -31,13 +42,105 @@ main{
 
 /* White card style */
 section, 
-.new-tasks{
+.new-tasks {
     background: white;
     padding: 20px;
-    border-radius: 8px ;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 /* Add spacing between sections */
 section + section {
     margin-top: 20px;
+}
+
+/* Section headings */
+h2 {
+    margin-bottom: 15px;
+    color: #34495e;
+}
+
+/* Task list styling */
+ul {
+    list-style: none;
+}
+
+li {
+    padding: 12px;
+    margin-bottom: 8px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Checkbox styling */
+.task-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+li span {
+    flex: 1;
+}
+
+/* Completed tasks styling */
+.completed-tasks li {
+    color: #7f8c8d;
+    text-decoration: line-through;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+input[type="date"],
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+input[type="date"]:focus,
+input[type="text"]:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+input[type="submit"] {
+    padding: 12px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+input[type="submit"]:hover {
+    background: #2980b9;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+    
+    body {
+        padding: 20px;
+    }
 }
