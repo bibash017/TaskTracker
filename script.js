@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         tasks.push(newTask);
 
         // save tasks after adding new tasks 
-        savedTasks(); 
+        saveTasks(); 
 
         input.value = "";
         dateInput.value = "";
@@ -109,7 +109,7 @@ function renderTasks() {
                 task.completedAt = Date.now();
 
                 // save after task completion 
-                savedTasks(); 
+                saveTasks(); 
 
                 renderTasks();
             });
@@ -159,12 +159,12 @@ function cleanupTasks() {
         }
         return true;
     });
-    savedTasks(); 
+    saveTasks(); 
 
     renderTasks();
 }
 
 // save tasks to localstorage so they persist after refresh 
-function savedTasks(){
+function saveTasks(){
     localStorage.setItem("tasks", JSON.stringify(tasks)); 
 }
