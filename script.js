@@ -58,6 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Run cleanup every minute
     setInterval(cleanupTasks, 60000);
 
+    // show saved tasks when page loads 
+    renderTasks(); 
+
 });
 
 // Handle checkbox click
@@ -151,6 +154,7 @@ function cleanupTasks() {
     renderTasks();
 }
 
+// save tasks to localstorage so they persist after refresh 
 function savedTasks(){
     localStorage.setItem("tasks", JSON.stringify(tasks)); 
 }
