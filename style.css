@@ -107,10 +107,10 @@ label {
 
 input[type="date"],
 input[type="text"] {
-    padding: 14px;
-    border: 1px solid #ddd;
+    padding: 16px;
+    font-size: 1.1em;
+    border: 1.1px solid #ddd;
     border-radius: 5px;
-    font-size: 1em;
 }
 
 input[type="date"]:focus,
@@ -133,4 +133,5 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background: #2980b9;
 }
+
 
