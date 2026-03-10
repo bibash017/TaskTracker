@@ -29,7 +29,9 @@ document.addEventListener('DOMContentLoaded', function() {
             createdAt: Date.now(),
             completedAt: null,
             deletedAt: null,
-            status: "active"
+            status: "active",
+            startTime : startTime.value, 
+            endTime: endTime.value
         };
 
         tasks.push(newTask);
