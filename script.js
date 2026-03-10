@@ -94,6 +94,10 @@ function renderTasks() {
             checkbox.addEventListener("change", function() {
                 task.status = "completed";
                 task.completedAt = Date.now();
+
+                // save after task completion 
+                savedTasks(); 
+
                 renderTasks();
             });
 
@@ -142,6 +146,7 @@ function cleanupTasks() {
         }
         return true;
     });
+    savedTasks(); 
 
     renderTasks();
 }
