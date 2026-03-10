@@ -17,6 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const input = document.getElementById("add_new_task");
     const dateInput = document.getElementById("date");
 
+    // start and end time inputs 
+    const startTime = document.getElementById("start-time"); 
+    const endTime = document.getElementById("end-time"); 
+
     window.remainingList = document.getElementById("remaining-list");
     window.completedList = document.getElementById("completed-list");
 
@@ -41,6 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         tasks.push(newTask);
+
+        // save tasks after adding new tasks 
+        savedTasks(); 
 
         input.value = "";
         dateInput.value = "";
