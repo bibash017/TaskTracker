@@ -7,10 +7,10 @@ const oneWeek = 7 * 24 * 60 * 60 * 1000;
 // Wait for page to load
 document.addEventListener('DOMContentLoaded', function() {
 
-    const savedTasks = localStorage.getItem("tasks")
+    const savedTasksData = localStorage.getItem("tasks")
 
-    if (savedTasks) {
-        tasks = JSON.parse(savedTasks); 
+    if (savedTasksData) {
+        tasks = JSON.parse(savedTasksData); 
     }
 
     const form = document.getElementById("task-form");
@@ -58,6 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Run cleanup every minute
     setInterval(cleanupTasks, 60000);
 
+    // update timer display every second 
+    setInterval(renderTasks, 1000); 
+
     // show saved tasks when page loads 
     renderTasks(); 
 
@@ -87,9 +90,16 @@ function renderTasks() {
                 }
             }
 
+            // show timer if due date today (within 24 hours )
+            if (diff > 0 && diff < oneDay) {
+                const hoursLeft = Math.floor(diff / (1000 * 60 * 60)); 
+                const minutesLeft = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)); 
+                timerHTML = `<span style = "color: orange; font-weight: bold; bold; "> (${hoursLeft}m left) </span>`; 
+            }
+
             li.innerHTML = `
                 <input type="checkbox" class="task-checkbox">
-                <span>${task.text}${task.dueDate ? " - " + task.dueDate : ""}</span>
+                <span>${task.text}${task.dueDate ? " - " + task.dueDate : ""}${timerHTML}</span>
             `;
 
             const checkbox = li.querySelector(".task-checkbox");
