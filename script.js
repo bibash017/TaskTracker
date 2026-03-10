@@ -7,6 +7,12 @@ const oneWeek = 7 * 24 * 60 * 60 * 1000;
 // Wait for page to load
 document.addEventListener('DOMContentLoaded', function() {
 
+    const savedTasks = localStorage.getItem("tasks")
+
+    if (savedTasks) {
+        tasks = JSON.parse(savedTasks); 
+    }
+
     const form = document.getElementById("task-form");
     const input = document.getElementById("add_new_task");
     const dateInput = document.getElementById("date");
@@ -131,4 +137,8 @@ function cleanupTasks() {
     });
 
     renderTasks();
+}
+
+function savedTasks(){
+    localStorage.setItem("tasks", JSON.stringify(tasks)); 
 }
