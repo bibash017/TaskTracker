@@ -181,3 +181,15 @@ function formatDate(dateStr){
     const d = new Date(dateStr); 
     return d.toLocaleDateString("en-US", {month: "short", day: "numeric"}); 
 }
+
+// turns a time stamp into "2 min ago", "1 hr ago", etc. 
+function timeAgo(timestamp){
+    const diff = Date.now() - timestamp; 
+    if (diff < 60 * 1000) 
+        return "just now"; 
+
+    if (diff < oneHour)
+        return `${Math.floor(diff / oneHour)}hr ago`; 
+
+    
+}
