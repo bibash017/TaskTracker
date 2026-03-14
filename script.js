@@ -23,16 +23,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const startTime = document.getElementById("start-time"); 
     const endTime = document.getElementById("end-time"); 
 
-
-
+    // these lists get rewritten every render  
     window.remainingList = document.getElementById("remaining-list");
     window.completedList = document.getElementById("completed-list");
 
     // form submit
     form.addEventListener("submit", function(e) {
+        // prevent the page from refreshing on submit
         e.preventDefault();
 
         const taskText = input.value.trim();
+        if(!text) return; 
         const taskDate = dateInput.value;
 
         if (taskText === "") return;
