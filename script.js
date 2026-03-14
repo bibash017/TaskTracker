@@ -7,12 +7,14 @@ const oneWeek = 7 * 24 * 60 * 60 * 1000;
 // Wait for page to load
 document.addEventListener('DOMContentLoaded', function() {
 
+    // restore whatever was saved last time the user visited
     const savedTasksData = localStorage.getItem("tasks")
 
     if (savedTasksData) {
         tasks = JSON.parse(savedTasksData); 
     }
 
+    // grab our form elements once here instead of hunting for them every render 
     const form = document.getElementById("task-form");
     const input = document.getElementById("add_new_task");
     const dateInput = document.getElementById("date");
@@ -21,9 +23,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const startTime = document.getElementById("start-time"); 
     const endTime = document.getElementById("end-time"); 
 
+
+
     window.remainingList = document.getElementById("remaining-list");
     window.completedList = document.getElementById("completed-list");
 
+    // form submit
     form.addEventListener("submit", function(e) {
         e.preventDefault();
 
@@ -94,7 +99,7 @@ function renderTasks() {
             if (diff > 0 && diff < oneDay) {
                 const hoursLeft = Math.floor(diff / (1000 * 60 * 60)); 
                 const minutesLeft = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)); 
-                timerHTML = `<span style = "color: orange; font-weight: bold; bold; "> (${hoursLeft}m left) </span>`; 
+                timerHTML = `<span style = "color: orange; font-weight: bold; bold; "> (${hoursLeft}h ${minutesLeft}m left) </span>`; 
             }
 
             li.innerHTML = `
