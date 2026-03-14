@@ -36,18 +36,16 @@ document.addEventListener('DOMContentLoaded', function() {
         if(!text) return; 
         const taskDate = dateInput.value;
 
-        if (taskText === "") return;
-
         const newTask = {
             id: Date.now(),
             text: taskText,
-            dueDate: taskDate,
+            dueDate: dateInput.value,
             createdAt: Date.now(),
             completedAt: null,
             deletedAt: null,
             status: "active",
             startTime : startTime.value, 
-            endTime: endTime.value
+            endTime: endTime.value, 
         };
 
         tasks.push(newTask);
@@ -57,6 +55,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         input.value = "";
         dateInput.value = "";
+        // clear form fields so the user can type the next task straight away
+        startTime.value = ""; 
+        endTime.value = ""; 
 
         renderTasks();
     });
