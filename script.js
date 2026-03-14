@@ -192,5 +192,6 @@ function timeAgo(timestamp){
         return `${Math.floor(diff / oneHour)}hr ago`; 
 
     if (diff < oneDay)
-        return `${Math.floor(diff / oneDay)} days ago`; 
+        return `${Math.floor(diff / oneHour)} hr ago`; 
+    return `${Math.floor(diff / oneDay)} days ago`
 }
