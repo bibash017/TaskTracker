@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         dateInput.value = "";
         // clear form fields so the user can type the next task straight away
         startTime.value = ""; 
-        endTime.value = ""; 
+        endTime.value = "";
 
         renderTasks();
     });
@@ -174,4 +174,10 @@ function cleanupTasks() {
 // save tasks to localstorage so they persist after refresh 
 function saveTasks(){
     localStorage.setItem("tasks", JSON.stringify(tasks)); 
+}
+
+// Turns "2025-06-15" into "Jun 15" - easier to scan at a glance
+function formatDate(dateStr){
+    const d = new Date(dateStr); 
+    return d.toLocaleDateString("en-US", {month: "short", day: "numeric"}); 
 }
