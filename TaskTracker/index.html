@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Welcome to the task tracker app!</h1>
+</header>
+
+<main>
+    <div class="task-columns">
+
+        <section class="remained-tasks">
+            <h2>Tasks Remained</h2>
+            <ul id="remaining-list"></ul>
+        </section>
+
+        <section class="completed-tasks">
+            <h2>Completed Tasks!</h2>
+            <ul id="completed-list"></ul>
+        </section>
+
+    </div>
+
+    <aside class="new-tasks">
+        <h2>ADD NEW TASK</h2>
+        <form id="task-form">
+            <label for="date">Due Date:</label>
+            <input id="date" type="date">
+
+            <label for="start-time">Start Time: </label>
+            <input id="start-time" type="time">
+
+            <label for="end-time">End Time: </label>
+            <input id="end-time" type="time">
+
+            <label for="add_new_task">Task:</label>
+            <input type="text" id="add_new_task" placeholder="Enter the description">
+
+            <input type="submit" value="Submit">
+        </form>
+    </aside>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
