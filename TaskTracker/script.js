@@ -100,11 +100,20 @@ function renderTasks() {
             }
 
             // show timer if due date today (within 24 hours )
-            if (diff > 0 && diff < oneDay) {
-                const hoursLeft = Math.floor(diff / (1000 * 60 * 60)); 
-                const minutesLeft = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)); 
-                timerHTML = `<span style = "color: orange; font-weight: bold; bold; "> (${hoursLeft}h ${minutesLeft}m left) </span>`; 
-            }
+            let timerHTML = "";
+        if (task.dueDate) {
+        const due = new Date(task.dueDate).getTime();
+        const diff = due - now;
+
+        if (diff < 0) {
+            li.style.color = "red";
+            timerHTML = `<span style="color:red; font-weight:bold;"> ⚠ Overdue</span>`;
+        } else if (diff < oneDay) {
+            const hoursLeft = Math.floor(diff / oneHour);
+            const minutesLeft = Math.floor((diff % oneHour) / oneMinute);
+            timerHTML = `<span style="color:orange; font-weight:bold;"> ⏰ ${hoursLeft}h ${minutesLeft}m left</span>`;
+        }
+        }
 
             li.innerHTML = `
                 <input type="checkbox" class="task-checkbox">
