@@ -1,8 +1,10 @@
 let tasks = [];
-
-const oneHour = 60 * 60 * 1000;
-const oneDay = 24 * 60 * 60 * 1000;
-const oneWeek = 7 * 24 * 60 * 60 * 1000;
+ 
+const oneMinute = 60 * 1000;
+const oneHour   = 60 * 60 * 1000;
+const oneDay    = 24 * 60 * 60 * 1000;
+const oneWeek   = 7  * 24 * 60 * 60 * 1000;
+ 
 
 // Wait for page to load
 document.addEventListener('DOMContentLoaded', function() {
@@ -185,8 +187,8 @@ function formatDate(dateStr){
 // turns a time stamp into "2 min ago", "1 hr ago", etc. 
 function timeAgo(timestamp){
     const diff = Date.now() - timestamp; 
-    if (diff < 60 * 1000) 
-        return "just now"; 
+    if (diff < oneHour)
+    return `${Math.floor(diff / oneMinute)} min ago`;
 
     if (diff < oneHour)
         return `${Math.floor(diff / oneHour)}hr ago`; 
