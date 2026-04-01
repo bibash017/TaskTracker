@@ -196,13 +196,8 @@ function formatDate(dateStr){
 // turns a time stamp into "2 min ago", "1 hr ago", etc. 
 function timeAgo(timestamp){
     const diff = Date.now() - timestamp; 
-    if (diff < oneHour)
-    return `${Math.floor(diff / oneMinute)} min ago`;
-
-    if (diff < oneHour)
-        return `${Math.floor(diff / oneHour)}hr ago`; 
-
-    if (diff < oneDay)
-        return `${Math.floor(diff / oneHour)} hr ago`; 
-    return `${Math.floor(diff / oneDay)} days ago`
+        if (diff < oneMinute) return "just now";
+        if (diff < oneHour)   return `${Math.floor(diff / oneMinute)} min ago`;
+        if (diff < oneDay)    return `${Math.floor(diff / oneHour)} hr ago`;
+        return `${Math.floor(diff / oneDay)} days ago`;
 }
