@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
 
         const taskText = input.value.trim();
-        if(!text) return; 
+        if(!taskText) return; 
         const taskDate = dateInput.value;
 
         const newTask = {
