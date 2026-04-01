@@ -136,5 +136,13 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background: #2980b9;
 }
+.priority-badge { 
+    font-size: 0.75 em;
+    font-weight: 700;
+    padding: 2px, 8px;
+    border-radius: 12px ;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
 
 
