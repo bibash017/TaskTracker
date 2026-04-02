@@ -189,4 +189,26 @@ select:focus {
 
 }
 
+.btn-delete { 
+    background: #fde8e8;
+    color: #c0392b;
+}
+
+.btn-delete:hover{ 
+    background: #c0392b;
+    color: white;
+}
+
+.btn-edit { 
+    background: #eaf4ff;
+    color: #2980b9;
+}
+
+.btn-edit:hover { 
+    background: #2980b9;
+    color: white;
+}
+
+
+
 
