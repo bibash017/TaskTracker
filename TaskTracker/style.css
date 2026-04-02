@@ -209,6 +209,31 @@ select:focus {
     color: white;
 }
 
+/* the little input that appears when editing */
+.edit-input{
+    flex: 1;
+    padding: 4px 8px ;
+    font-size: 1em;
+    border: 1.5px solid #3498db;
+    border-radius: 5px;
+}
+
+.btn-save{
+    border: none;
+    border-radius: 5px;
+    padding: 4px 10px;
+    font-size: 0.85em;
+    cursor: pointer;
+    font-weight: 600;
+    background: #e8f8f0;
+    color: #27ae60;
+}
+
+.btn-save:hover {
+    background: #27ae60;
+    color: white;
+}
+
 
 
 
