@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // start and end time inputs 
     const startTime = document.getElementById("start-time"); 
+    const priority = document.getElementById("priority"); 
     const endTime = document.getElementById("end-time"); 
 
     // these lists get rewritten every render  
@@ -47,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
             deletedAt: null,
             status: "active",
             startTime : startTime.value, 
+            priority: priority.value, 
             endTime: endTime.value, 
         };
 
