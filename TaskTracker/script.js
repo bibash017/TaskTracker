@@ -119,7 +119,12 @@ function renderTasks() {
 
             li.innerHTML = `
                 <input type="checkbox" class="task-checkbox">
-                <span>${task.text}${task.dueDate ? " - " + task.dueDate : ""}${timerHTML}</span>
+                <span class="priority-badge priority-${task.priority}">${task.priority}</span>
+                <span>
+                    <strong>${task.text}</strong>
+                    ${task.dueDate ? " · " + formatDate(task.dueDate) : ""}
+                     ${timerHTML}
+                </span>
             `;
 
             const checkbox = li.querySelector(".task-checkbox");
