@@ -131,17 +131,38 @@ function renderTasks() {
             </div>
             `;
 
-            const checkbox = li.querySelector(".task-checkbox");
+            // --- DELETE ---
+li.querySelector(".btn-delete").addEventListener("click", function() {
+    tasks = tasks.filter(t => t.id !== task.id);
+    saveTasks();
+    renderTasks();
+});
 
-            checkbox.addEventListener("change", function() {
-                task.status = "completed";
-                task.completedAt = Date.now();
+// --- EDIT ---
+li.querySelector(".btn-edit").addEventListener("click", function() {
 
-                // save after task completion 
-                saveTasks(); 
+    // grab the span that holds the task text
+    const textSpan = li.querySelector("span:not(.priority-badge)");
+    const currentText = task.text;
 
-                renderTasks();
-            });
+    // swap the span out for an input box + save button
+    textSpan.innerHTML = `
+        <input class="edit-input" value="${currentText}">
+        <button class="btn-save">✅ Save</button>
+    `;
+
+    // focus the input so user can type right away
+    textSpan.querySelector(".edit-input").focus();
+
+    // when they hit save
+    textSpan.querySelector(".btn-save").addEventListener("click", function() {
+        const newText = textSpan.querySelector(".edit-input").value.trim();
+        if (!newText) return; // don't save empty task
+        task.text = newText;
+        saveTasks();
+        renderTasks();
+    });
+});
 
             remainingList.appendChild(li);
         }
