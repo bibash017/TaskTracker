@@ -126,8 +126,8 @@ function renderTasks() {
                 ${timerHTML}
             </span>
             <div class="task-actions">
-                <button class="btn-edit">✏️ Edit</button>
-                <button class="btn-delete">🗑️ Delete</button>
+                <button class="btn-edit">Edit</button>
+                <button class="btn-delete">Delete</button>
             </div>
             `;
 
