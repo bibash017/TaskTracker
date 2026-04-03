@@ -3,7 +3,7 @@ let tasks = [];
 const oneMinute = 60 * 1000;
 const oneHour   = 60 * 60 * 1000;
 const oneDay    = 24 * 60 * 60 * 1000;
-const oneWeek   = 7  * 24 * 60 * 60 * 1000;
+//const oneWeek   = 7  * 24 * 60 * 60 * 1000;
  
 
 // Wait for page to load
