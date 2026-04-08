@@ -1,0 +1,39 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ 
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #f5f4f0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem 1rem;
+}
+ 
+.wrap {
+  width: 100%;
+  max-width: 460px;
+}
+
+/* ── Title ── */
+.game-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: #888780;
+  text-transform: uppercase;
+  margin-bottom: 2.2rem;
+}
+ 
+/* ── Section labels ── */
+.section-label {
+  font-size: 12px;
+  color: #888780;
+  margin-bottom: 10px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
