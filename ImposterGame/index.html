@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Imposter — Word Game</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="wrap">
+    <div class="game-title">imposter — word game</div>
+
+    <!-- Player count -->
+    <div class="section-label">number of players</div>
+    <div class="player-count-row" id="countRow"></div>
+
+    <!-- Difficulty -->
+    <div class="section-label">difficulty</div>
+    <div class="mode-row">
+      <button class="mode-btn" id="mEasy" onclick="setMode('easy')">
+        <span class="mode-icon"></span>easy
+      </button>
+      <button class="mode-btn" id="mMed" onclick="setMode('medium')">
+        <span class="mode-icon"></span>medium
+      </button>
+      <button class="mode-btn" id="mHard" onclick="setMode('hard')">
+        <span class="mode-icon"></span>hard
+      </button>
+    </div>
+    <div class="mode-desc" id="modeDesc"></div>
+
+    <div class="divider"></div>
+
+    <!-- Players -->
+    <div class="players-section">
+      <div class="section-label" style="margin-bottom: 12px;">players</div>
+      <div class="player-list" id="playerList"></div>
+    </div>
+
+    <button class="start-btn" onclick="startGame()">start game</button>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
