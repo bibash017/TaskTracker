@@ -37,3 +37,212 @@ body {
   font-weight: 400;
   letter-spacing: 0.04em;
 }
+
+/* ── Player count buttons ── */
+.player-count-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+ 
+.count-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid #e0ddd5;
+  background: #ffffff;
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  cursor: pointer;
+  color: #888780;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.count-btn:hover {
+  border-color: #b4b2a9;
+  color: #2c2c2a;
+}
+ 
+.count-btn.active {
+  background: #2c2c2a;
+  border-color: #2c2c2a;
+  color: #f1efe8;
+}
+
+
+/* ── Difficulty buttons ── */
+.mode-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 0.6rem;
+}
+ 
+.mode-btn {
+  flex: 1;
+  padding: 14px 10px;
+  border-radius: 12px;
+  border: 1px solid #e0ddd5;
+  background: #ffffff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  color: #888780;
+  transition: all 0.15s ease;
+  text-align: center;
+  font-weight: 400;
+}
+ 
+.mode-btn .mode-icon {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+ 
+.mode-btn:hover {
+  border-color: #b4b2a9;
+  color: #2c2c2a;
+}
+ 
+.mode-btn.active-easy {
+  background: #e1f5ee;
+  border-color: #5dcaa5;
+  color: #085041;
+}
+ 
+.mode-btn.active-medium {
+  background: #faeeda;
+  border-color: #ef9f27;
+  color: #412402;
+}
+ 
+.mode-btn.active-hard {
+  background: #faece7;
+  border-color: #d85a30;
+  color: #4a1b0c;
+}
+ 
+/* ── Mode description ── */
+.mode-desc {
+  font-size: 12px;
+  color: #888780;
+  margin-bottom: 1.8rem;
+  padding-left: 2px;
+  min-height: 16px;
+}
+ 
+/* ── Divider ── */
+.divider {
+  height: 1px;
+  background: #e0ddd5;
+  margin-bottom: 1.5rem;
+}
+ 
+/* ── Player list ── */
+.players-section {
+  margin-bottom: 2rem;
+}
+ 
+.player-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+ 
+.player-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid #e0ddd5;
+  border-radius: 10px;
+  background: #ffffff;
+}
+ 
+.player-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: #b4b2a9;
+  width: 20px;
+  flex-shrink: 0;
+}
+ 
+.player-name-display {
+  flex: 1;
+  font-size: 14px;
+  color: #2c2c2a;
+  font-weight: 400;
+}
+ 
+.player-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  background: transparent;
+  color: #2c2c2a;
+  padding: 0;
+}
+ 
+.rename-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 4px;
+  color: #b4b2a9;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: color 0.1s;
+  line-height: 1;
+}
+ 
+.rename-btn:hover {
+  color: #5f5e5a;
+}
+ 
+.save-btn {
+  font-size: 11px;
+  font-family: 'DM Mono', monospace;
+  background: none;
+  border: 1px solid #e0ddd5;
+  border-radius: 6px;
+  padding: 3px 8px;
+  cursor: pointer;
+  color: #888780;
+  transition: all 0.1s;
+}
+ 
+.save-btn:hover {
+  border-color: #b4b2a9;
+  color: #2c2c2a;
+}
+ 
+/* ── Start button ── */
+.start-btn {
+  width: 100%;
+  padding: 15px;
+  border-radius: 12px;
+  border: none;
+  background: #2c2c2a;
+  color: #f1efe8;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  transition: opacity 0.15s;
+}
+ 
+.start-btn:hover {
+  opacity: 0.88;
+}
+ 
+.start-btn:active {
+  opacity: 0.75;
+  transform: scale(0.99);
+}
+ 
